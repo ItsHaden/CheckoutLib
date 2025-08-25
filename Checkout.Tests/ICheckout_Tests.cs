@@ -13,7 +13,7 @@ namespace Checkout.Tests
                 { "D", new ItemPriceRule(15) }
             }
 
-            return new Checkout();
+            return new Checkout(productList);
         }
 
         [Theory]
