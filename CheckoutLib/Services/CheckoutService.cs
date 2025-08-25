@@ -32,8 +32,6 @@ namespace Checkout.Core.Services
             _basket[product] = ++value;
         }
 
-
-
         public int GetTotalPrice()
         {
             int totalPrice = 0;
