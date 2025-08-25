@@ -1,5 +1,6 @@
 using Checkout.Core.Interfaces;
 using Checkout.Core.Models;
+using Checkout.Core.Promotions;
 
 namespace Checkout.Tests
 {
@@ -8,15 +9,22 @@ namespace Checkout.Tests
 
         private ICheckoutService CreateCheckoutInstance()
         {
-            var productList = new Dictionary<string, ItemPriceRule>()
+            var productList = new Dictionary<string, ItemPrice>()
             {
-                { "A", new ItemPriceRule(50, 3, 130) },
-                { "B", new ItemPriceRule(30, 2, 45) },
-                { "C", new ItemPriceRule(20) },
-                { "D", new ItemPriceRule(15) }
+                { "A", new ItemPrice("A", 50) },
+                { "B", new ItemPrice("B", 30) },
+                { "C", new ItemPrice("C", 20) },
+                { "D", new ItemPrice("D", 15) }
             };
 
-            return new Core.Services.CheckoutService(productList);
+            var promotions = new List<IPromotion>
+            {
+                new QuantityForPricePromo("A", 3, 130),
+                new QuantityForPricePromo("B", 2, 45)
+            };
+
+
+            return new Core.Services.CheckoutService(productList, promotions);
         }
 
         [Theory]
