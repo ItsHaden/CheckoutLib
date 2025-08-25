@@ -6,7 +6,7 @@ namespace Checkout.Tests
     public class ICheckout_Tests
     {
 
-        private ICheckout CreateCheckoutInstance()
+        private ICheckoutService CreateCheckoutInstance()
         {
             var productList = new Dictionary<string, ItemPriceRule>()
             {
@@ -16,7 +16,7 @@ namespace Checkout.Tests
                 { "D", new ItemPriceRule(15) }
             };
 
-            return new Core.Services.Checkout(productList);
+            return new Core.Services.CheckoutService(productList);
         }
 
         [Theory]

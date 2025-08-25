@@ -3,12 +3,12 @@ using Checkout.Core.Models;
 
 namespace Checkout.Core.Services
 {
-    public class Checkout : ICheckout
+    public class CheckoutService : ICheckoutService
     {
         private readonly Dictionary<string, ItemPriceRule> _stockList;
         private readonly Dictionary<string, int> _basket;
 
-        public Checkout(Dictionary<string, ItemPriceRule> stockList)
+        public CheckoutService(Dictionary<string, ItemPriceRule> stockList)
         {
             _stockList = stockList;
             _basket = new Dictionary<string, int>();
