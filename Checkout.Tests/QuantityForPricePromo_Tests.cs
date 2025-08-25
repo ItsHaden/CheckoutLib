@@ -12,13 +12,11 @@ namespace Checkout.Tests
         public QuantityForPricePromo_Tests()
         {
             _promotion = new QuantityForPricePromo("A", 3, 130);
-
             _stockList = new Dictionary<string, ItemPrice>
-        {
-            { "A", new ItemPrice("A", 50) }
-        };
+            {
+                { "A", new ItemPrice("A", 50) }
+            };
         }
-
 
         [Theory]
         [InlineData(0, 0)]
@@ -51,7 +49,5 @@ namespace Checkout.Tests
 
             Assert.Equal(0, discount);
         }
-
-
     }
 }

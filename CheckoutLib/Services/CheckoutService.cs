@@ -36,7 +36,6 @@ namespace Checkout.Core.Services
 
         public int GetTotalPrice()
         {
-
             // Calculate total price without promotions
             int total = _basket.Sum(i => i.Value * _stockList[i.Key].UnitPrice);
 

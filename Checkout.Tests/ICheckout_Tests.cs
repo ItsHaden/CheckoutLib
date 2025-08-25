@@ -6,7 +6,6 @@ namespace Checkout.Tests
 {
     public class ICheckout_Tests
     {
-
         private ICheckoutService CreateCheckoutInstance()
         {
             var productList = new Dictionary<string, ItemPrice>()
