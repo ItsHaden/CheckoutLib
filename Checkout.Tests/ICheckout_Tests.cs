@@ -1,3 +1,6 @@
+using Checkout.Core.Interfaces;
+using Checkout.Core.Models;
+
 namespace Checkout.Tests
 {
     public class ICheckout_Tests
@@ -5,15 +8,15 @@ namespace Checkout.Tests
 
         private ICheckout CreateCheckoutInstance()
         {
-            var productList = new Dictionary<string, ItemPriceRule>();
+            var productList = new Dictionary<string, ItemPriceRule>()
             {
                 { "A", new ItemPriceRule(50, 3, 130) },
                 { "B", new ItemPriceRule(30, 2, 45) },
                 { "C", new ItemPriceRule(20) },
                 { "D", new ItemPriceRule(15) }
-            }
+            };
 
-            return new Checkout(productList);
+            return new Core.Services.Checkout(productList);
         }
 
         [Theory]
