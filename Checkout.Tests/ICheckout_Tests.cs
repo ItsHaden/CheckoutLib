@@ -5,6 +5,14 @@ namespace Checkout.Tests
 
         private ICheckout CreateCheckoutInstance()
         {
+            var productList = new Dictionary<string, ItemPriceRule>();
+            {
+                { "A", new ItemPriceRule(50, 3, 130) },
+                { "B", new ItemPriceRule(30, 2, 45) },
+                { "C", new ItemPriceRule(20) },
+                { "D", new ItemPriceRule(15) }
+            }
+
             return new Checkout();
         }
 
